@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 class Publicacao(models.Model):
 
     DISSERTACAO = 'DISSERTACAO'
@@ -17,5 +15,8 @@ class Publicacao(models.Model):
     data_defesa = models.DateField()
     ano_publicacao = models.IntegerField()
     orientador = models.TextField()
+    banca = models.TextField()
     palavras_chaves = models.TextField()
+    visitas = models.IntegerField()
+    downlaods = models.IntegerField()
 

@@ -1,0 +1,87 @@
+[
+{
+    "titulo" : "Implantação automatizada de composições de serviços web de grande escala", 
+    "tipo" : "Dissertação de Mestrado", 
+    "autor" : "Leite, Leonardo Alexandre Ferreira", 
+    "unidade" : "Instituto de Matemática e Estatística", 
+    "area_conhecimento" : "Ciência da Computação", 
+    "data_defesa" : "2014-05-26", 
+    "ano_publicacao" : "2014", 
+    "orientador" : "Gerosa, Marco Aurélio", 
+    "banca" : "Kon, Fabio (Presidente); Camargo, Raphael; Yokoingawa de Cerqueira; Renato Fontoura de Gusmão", 
+    "palavras_chaves" : "composições de serviços; computação em nuvem; coreografias; grande escala; implantação de software; serviços web", 
+    "visitas" : "173", 
+    "downlaods" : "154"
+},
+{
+    "titulo" : "Monitoramento de métricas de código-fonte em projetos de software livre", 
+    "tipo" : "Tese de Doutorado", 
+    "autor" : "Meirelles, Paulo Roberto Miranda", 
+    "unidade" : "Instituto de Matemática e Estatística", 
+    "area_conhecimento" : "Ciência da Computação", 
+    "data_defesa" : "2013-05-20", 
+    "ano_publicacao" : "2013", 
+    "orientador" : "Kon, Fabio (Catálogo USP), Santos Júnior, Carlos Denner dos - (Coorientador)", 
+    "banca" : "Kon, Fabio (Presidente); Chaim, Marcos Lordello; Guerra, Eduardo; Martins, Lejbman, Alfredo Goldman Vel; Maldonado, José Carlos", 
+    "palavras_chaves" : "engenharia de software experimental; métricas de código-fonte; software livre", 
+    "visitas" : "1290", 
+    "downlaods" : "744"
+},
+{
+    "titulo" : "Como a prática de TDD influencia o projeto de classes em sistemas orientados a objetos", 
+    "tipo" : "Dissertação de Mestrado", 
+    "autor" : "Aniche, Mauricio Finavaro", 
+    "unidade" : "Instituto de Matemática e Estatística", 
+    "area_conhecimento" : "Ciência da Computação", 
+    "data_defesa" : "2012-04-25", 
+    "ano_publicacao" : "2012", 
+    "orientador" : "Gerosa, Marco Aurélio", 
+    "banca" : "Gerosa, Marco Aurélio (Presidente); Prikladnicki, Rafael; Silveira, Ismar Frango", 
+    "palavras_chaves" : "Desenvolvimento Guiado por Testes; Projeto de Classes; Qualidade Interna de Codigo.; Sistemas Orientados a Objetos", 
+    "visitas" : "1157", 
+    "downlaods" : "2576"
+},
+{
+    "titulo" : "Proposição de calibração de redes de sistemas de abastecimento de água através de método híbrido", 
+    "tipo" : "Tese de Doutorado", 
+    "autor" : "Abe, Narumi", 
+    "unidade" : "Escola de Engenharia de São Carlos", 
+    "area_conhecimento" : "Hidráulica e Saneamento", 
+    "data_defesa" : "2014-05-30", 
+    "ano_publicacao" : "2014", 
+    "orientador" : "Reis, Luisa Fernanda Ribeiro", 
+    "banca" : "Reis, Luisa Fernanda Ribeiro (Presidente); Cheung, Peter Batista; Kellner, Erich; Luvizotto Junior, Edevar; Porto, Rodrigo de Melo", 
+    "palavras_chaves" : "Algoritmos genéticos; Calibração; EPANET; Redes neurais artificiais", 
+    "visitas" : "533", 
+    "downlaods" : "598"
+},
+{
+    "titulo" : "Transições entre mídias: arcabouço tecnológico para aplicações de mídia cruzada.", 
+    "tipo" : "Dissertação de Mestrado", 
+    "autor" : "Miyamaru, Flávio", 
+    "unidade" : "Escola Politécnica", 
+    "area_conhecimento" : "Sistemas Digitais", 
+    "data_defesa" : "2010-02-22", 
+    "ano_publicacao" : "2010", 
+    "orientador" : "Filgueiras, Lucia Vilela Leite", 
+    "banca" : "Filgueiras, Lucia Vilela Leite (Presidente); Furtado, Maria Elizabeth Sucupira; Tori, Romero", 
+    "palavras_chaves" : "Arcabouço; Mídia cruzada; Mídias; Narrativa transmidiática; Transições", 
+    "visitas" : "242", 
+    "downlaods" : "575"
+},
+{
+    "titulo" : "Quarteto de cordas em sol menor de Claude Debussy: reiterações e aspectos formais", 
+    "tipo" : "Dissertação de Mestrado", 
+    "autor" : "Abramovay, Juliano Taques Bittencourt", 
+    "unidade" : "Escola de Comunicações e Artes", 
+    "area_conhecimento" : "Processos de Criação Musical", 
+    "data_defesa" : "2014-11-14", 
+    "ano_publicacao" : "2014", 
+    "orientador" : " Salles, Paulo de Tarso Camargo Cambraia ", 
+    "banca" : "Salles, Paulo de Tarso Camargo Cambraia (Presidente); Bortz, Graziela; Moreira, Adriana Lopes da Cunha", 
+    "palavras_chaves" : " Análise musical; Claude Debussy; Forma cíclica; Quarteto de cordas em sol menor opus 10; Reiteração", 
+    "visitas" : "151", 
+    "downlaods" : "86"
+}
+]
+
