@@ -18,5 +18,5 @@ class Publicacao(models.Model):
     banca = models.TextField()
     palavras_chaves = models.TextField()
     visitas = models.IntegerField()
-    downlaods = models.IntegerField()
+    downloads = models.IntegerField()
 
