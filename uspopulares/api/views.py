@@ -2,10 +2,10 @@ from . import models
 from . import serializers
 from rest_framework import viewsets
 
-
 class PublicacaoViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = models.Publicacao.objects.all().order_by('id')
+    filter_fields = ('unidade', 'ano_publicacao')
 
     def get_serializer_class(self):
         if self.action == 'list':
