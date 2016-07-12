@@ -19,4 +19,5 @@ class Publicacao(models.Model):
     palavras_chaves = models.TextField()
     visitas = models.IntegerField()
     downloads = models.IntegerField()
+    url = models.TextField()
 
