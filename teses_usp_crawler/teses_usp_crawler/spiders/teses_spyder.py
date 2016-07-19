@@ -1,14 +1,27 @@
 import scrapy
 from teses_usp_crawler import items
+import re
 
 class TesesSpider(scrapy.Spider):
+
     name = "teses"
     allowed_domains = ["teses.usp.br"]
     start_urls = [
-        "http://www.teses.usp.br/teses/disponiveis/45/45134/tde-20102014-171912/pt-br.php",
+        "http://www.teses.usp.br/teses/disponiveis/",
     ]
 
     def parse(self, response):
+        hrefs = response.xpath('//a/@href').extract()
+        hrefs_to_follow = [ href for href in hrefs if re.match('[tde0-9-]+/$', href) or href == 'livredocencia/' ]
+        for href in hrefs_to_follow:
+            url = response.urljoin(href)
+            if href.startswith('tde'):
+                yield scrapy.Request(url, callback=self.parse_publicacao)
+            else:
+                yield scrapy.Request(url, callback=self.parse)
+
+
+    def parse_publicacao(self, response):
         publicacao = items.PublicacaoItem()
         publicacao['titulo'] = response.xpath('//input[@name=\'evTitulo\']/@value').extract()[0]
         publicacao['tipo'] = response.xpath('//div[contains(text(), \'Documento\')]/following-sibling::div[1]/a/text()').extract()[0]
