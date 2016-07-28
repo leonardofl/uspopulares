@@ -1,4 +1,8 @@
 from django.db import models
+import json
+import os
+
+MODULE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 class Publicacao(models.Model):
 
@@ -20,4 +24,18 @@ class Publicacao(models.Model):
     visitas = models.IntegerField()
     downloads = models.IntegerField()
     url = models.TextField()
+
+
+class UnidadesUsp:
+
+    UNIDADES_FILE = os.path.join(MODULE_DIR, 'unidades.json')
+
+    @staticmethod
+    def get_sigla_from(nome):
+        with open(UnidadesUsp.UNIDADES_FILE) as data_file:    
+            siglas = json.load(data_file)
+            return siglas[nome]
+
+
+
 
