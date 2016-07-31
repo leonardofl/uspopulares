@@ -1,5 +1,7 @@
 from django.test import TestCase
 from importador import importador_teses_usp
+from datetime import date
+from api import models
 import json
 import os
 
@@ -22,11 +24,18 @@ class PublicaoJsonParserTests(TestCase):
         self.assertEqual(publicacao.autor, 'Jacqueline Meireles Ronconi')
         self.assertEqual(publicacao.unidade, 'FFCLRP')
         self.assertEqual(publicacao.area_conhecimento, 'Educação')
-#            self.assertEqual(publicacao.data_defesa, '')
+        self.assertEqual(publicacao.data_defesa, date(2015, 7, 3))
         self.assertEqual(publicacao.ano_publicacao, 2015)
         self.assertEqual(publicacao.orientador, 'Pacifico, Soraya Maria Romano')
-#            self.assertEqual(publicacao.banca, '')
-#            self.assertEqual(publicacao.palavras_chaves, '')
+        self.assertEqual(len(publicacao.banca), 3)
+        self.assertEqual(publicacao.banca[0], 'Pacifico, Soraya Maria Romano (Presidente)')        
+        self.assertEqual(publicacao.banca[1], 'Patti, Ane Ribeiro')
+        self.assertEqual(publicacao.banca[2], 'Sousa, Lucília Maria Abrahão e')
+        self.assertEqual(len(publicacao.palavras_chaves), 4)
+        self.assertEqual(publicacao.palavras_chaves[0], 'Discurso')        
+        self.assertEqual(publicacao.palavras_chaves[1], 'Linguagem')        
+        self.assertEqual(publicacao.palavras_chaves[2], 'Livro didático')
+        self.assertEqual(publicacao.palavras_chaves[3], 'Rede eletrônica')
         self.assertEqual(publicacao.visitas, 44)
         self.assertEqual(publicacao.downloads, 21)
         self.assertEqual(publicacao.url, 'http://www.teses.usp.br/teses/disponiveis/59/59140/tde-31072015-115636/pt-br.php')

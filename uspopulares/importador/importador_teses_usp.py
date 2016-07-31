@@ -1,5 +1,6 @@
 import urllib.request
 import json
+from datetime import date, datetime
 from api import models
 
 JSON_URL = 'https://github.com/leonardofl/uspopulares/blob/master/teses_usp_crawler/teses_usp_crawler/publicacoes.json?raw=true'
@@ -32,7 +33,8 @@ class PublicaoJsonParser:
         except KeyError:
             publicacao.unidade = nome_unidade
         publicacao.area_conhecimento = publicacao_json['area_conhecimento']
-        publicacao.data_defesa = publicacao_json['data_defesa']
+        timestamp = publicacao_json['data_defesa']
+        publicacao.data_defesa = datetime.strptime(timestamp, "%Y-%m-%d").date()
         publicacao.ano_publicacao = int(publicacao_json['ano_publicacao'])
         publicacao.orientador = publicacao_json['orientador']
         publicacao.banca = publicacao_json['banca']
