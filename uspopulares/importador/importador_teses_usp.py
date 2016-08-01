@@ -24,7 +24,8 @@ class PublicaoJsonParser:
     def parse(self, publicacao_json):
         publicacao = models.Publicacao()
         publicacao.titulo = publicacao_json['titulo']
-        publicacao.tipo = publicacao_json['tipo']
+        tipo_display = publicacao_json['tipo']
+        publicacao.tipo = models.TipoPublicacao.value_from(tipo_display)
         publicacao.autor = publicacao_json['autor']
         nome_unidade = publicacao_json['unidade']
         try:

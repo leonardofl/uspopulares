@@ -4,15 +4,27 @@ import os
 
 MODULE_DIR = os.path.abspath(os.path.dirname(__file__))
 
+class TipoPublicacao:
+
+    DISSERTACAO_MESTRADO = 'DISSERTACAO_METRADO'
+    TESE_DOUTORADO = 'TESE_DOUTORADO'
+    TESE_LIVRE_DOCENCIA = 'TESE_LIVRE_DOCENCIA'
+
+    choices = ((DISSERTACAO_MESTRADO, 'Dissertação de Mestrado'), 
+               (TESE_DOUTORADO, 'Tese de Doutorado'), 
+               (TESE_LIVRE_DOCENCIA, 'Tese de Livre Docencia'))
+
+    @staticmethod
+    def value_from(display):
+        for choice_value, choice_display in TipoPublicacao.choices:
+            if choice_display == display:
+                return choice_value
+        raise KeyError
+
 class Publicacao(models.Model):
 
-    DISSERTACAO = 'DISSERTACAO'
-    TESE = 'TESE'
-    LIVRE_DOCENCIA = 'LIVRE_DOCENCIA'
-    TIPOS = ((DISSERTACAO, 'Dissertação'), (TESE, 'Tese'), (LIVRE_DOCENCIA, 'Livre docência'))
-
     titulo = models.TextField()
-    tipo = models.TextField(choices=TIPOS)
+    tipo = models.TextField(choices=TipoPublicacao.choices)
     autor = models.TextField()
     unidade = models.TextField()
     area_conhecimento = models.TextField()

@@ -20,7 +20,7 @@ class PublicaoJsonParserTests(TestCase):
         publicacao_json = publicacoes_json()[0]
         publicacao = parser.parse(publicacao_json)
         self.assertEqual(publicacao.titulo, 'Efeitos do discurso da rede eletrônica no livro didático de Língua Portuguesa')
-#            self.assertEqual(publicacao.tipo, '')
+        self.assertEqual(publicacao.tipo, models.TipoPublicacao.DISSERTACAO_MESTRADO)
         self.assertEqual(publicacao.autor, 'Jacqueline Meireles Ronconi')
         self.assertEqual(publicacao.unidade, 'FFCLRP')
         self.assertEqual(publicacao.area_conhecimento, 'Educação')
