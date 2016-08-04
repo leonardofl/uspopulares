@@ -14,6 +14,12 @@ def publicacoes_json():
         publicacoes_json = json.load(data_file)               
     return publicacoes_json
 
+def publicacoes_in_future_json():
+    publicacoes_for_test = os.path.join(MODULE_DIR, 'publicacoes-in-future-for-test.json')
+    with open(publicacoes_for_test) as data_file:    
+        publicacoes_json = json.load(data_file)               
+    return publicacoes_json
+
 
 class PublicaoJsonParserTests(TestCase):
 
@@ -70,6 +76,39 @@ class ImportadorTesesUspTests(TestCase):
         self.assertTrue('Ricardo Nogueira Fracon' in autores)
         self.assertTrue('Silvia Helena Libardi' in autores)
 
+    def test_importacao_idempotente(self):
+
+        # importa primeira vez
+
+        json_retriever = importador_teses_usp.PublicacoesJsonRetriever()
+        json_retriever.get_json = Mock(side_effect=publicacoes_json)
+        importador = importador_teses_usp.ImportadorTesesUsp(json_retriever)
+
+        importador.importar()
+
+        publicacoes = models.Publicacao.objects.all()
+        self.assertEqual(4, len(publicacoes))
+        tuplas = [ (p.autor, p.visitas, p.downloads) for p in publicacoes ]
+        self.assertTrue(('Jacqueline Meireles Ronconi', 44, 21) in tuplas)
+        self.assertTrue(('Érica Mancuso Schaden', 37, 27) in tuplas)
+        self.assertTrue(('Ricardo Nogueira Fracon', 343, 717) in tuplas)
+        self.assertTrue(('Silvia Helena Libardi', 55, 48) in tuplas)
+
+        # importa segunda vez
+
+        json_retriever = importador_teses_usp.PublicacoesJsonRetriever()
+        json_retriever.get_json = Mock(side_effect=publicacoes_in_future_json)
+        importador = importador_teses_usp.ImportadorTesesUsp(json_retriever)
+
+        importador.importar()
+
+        publicacoes = models.Publicacao.objects.all()
+        self.assertEqual(4, len(publicacoes))
+        tuplas = [ (p.autor, p.visitas, p.downloads) for p in publicacoes ]
+        self.assertTrue(('Jacqueline Meireles Ronconi', 64, 31) in tuplas)
+        self.assertTrue(('Érica Mancuso Schaden', 57, 37) in tuplas)
+        self.assertTrue(('Ricardo Nogueira Fracon', 363, 727) in tuplas)
+        self.assertTrue(('Silvia Helena Libardi', 75, 58) in tuplas)
         
 
 

@@ -3,6 +3,8 @@ import json
 from datetime import date, datetime
 from api import models
 
+#TODO usar log em vez de print
+
 JSON_URL = 'https://github.com/leonardofl/uspopulares/blob/master/teses_usp_crawler/teses_usp_crawler/publicacoes.json?raw=true'
 
 class PublicacoesJsonRetriever:
@@ -24,9 +26,14 @@ class ImportadorTesesUsp:
         print('Importando', len(publicacoes_json), 'publicações.')
         parser = PublicaoJsonParser()
         for publicacao_json in publicacoes_json:
-            publicacao = parser.parse(publicacao_json)
+            url = publicacao_json['url']
+            try:
+                publicacao = models.Publicacao.objects.get(url=url)
+                publicacao.visitas = int(publicacao_json['visitas'])
+                publicacao.downloads = int(publicacao_json['downloads'])
+            except models.Publicacao.DoesNotExist:
+                publicacao = parser.parse(publicacao_json)
             publicacao.save()
-            # TODO importação idempotente
         print('Importação concluída')
 
 
