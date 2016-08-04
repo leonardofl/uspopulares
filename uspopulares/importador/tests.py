@@ -2,6 +2,7 @@ from django.test import TestCase
 from importador import importador_teses_usp
 from datetime import date
 from api import models
+from mock import Mock
 import json
 import os
 
@@ -12,6 +13,7 @@ def publicacoes_json():
     with open(publicacoes_for_test) as data_file:    
         publicacoes_json = json.load(data_file)               
     return publicacoes_json
+
 
 class PublicaoJsonParserTests(TestCase):
 
@@ -48,6 +50,28 @@ class PublicaoJsonParserTests(TestCase):
         parser = importador_teses_usp.PublicaoJsonParser()
         publicacao = parser.parse(publicacao_json)
         self.assertEqual(publicacao.unidade, nome_unidade)
+
+
+class ImportadorTesesUspTests(TestCase):
+
+    def test_importar(self):
+
+        json_retriever = importador_teses_usp.PublicacoesJsonRetriever()
+        json_retriever.get_json = Mock(side_effect=publicacoes_json)
+        importador = importador_teses_usp.ImportadorTesesUsp(json_retriever)
+
+        importador.importar()
+
+        publicacoes = models.Publicacao.objects.all()
+        self.assertEqual(4, len(publicacoes))
+        autores = [ p.autor for p in publicacoes ]
+        self.assertTrue('Jacqueline Meireles Ronconi' in autores)
+        self.assertTrue('Érica Mancuso Schaden' in autores)
+        self.assertTrue('Ricardo Nogueira Fracon' in autores)
+        self.assertTrue('Silvia Helena Libardi' in autores)
+
+        
+
 
 
 

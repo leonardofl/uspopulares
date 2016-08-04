@@ -5,19 +5,30 @@ from api import models
 
 JSON_URL = 'https://github.com/leonardofl/uspopulares/blob/master/teses_usp_crawler/teses_usp_crawler/publicacoes.json?raw=true'
 
-class ImportadorTesesUsp:
+class PublicacoesJsonRetriever:
 
-    def importar(self):
+    def get_json(self):
         print('Acessando publicações em', JSON_URL)
         response = urllib.request.urlopen(JSON_URL)
-        publicacoes = json.loads(response.read().decode('utf-8'))
-        print('Importando', len(publicacoes), 'publicações.')
+        publicacoes_json = json.loads(response.read().decode('utf-8'))
+        return publicacoes_json
+
+
+class ImportadorTesesUsp:
+
+    def __init__(self, publicacoes_json_retriever=PublicacoesJsonRetriever()):
+        self.publicacoes_json_retriever = publicacoes_json_retriever
+
+    def importar(self):
+        publicacoes_json = self.publicacoes_json_retriever.get_json()
+        print('Importando', len(publicacoes_json), 'publicações.')
         parser = PublicaoJsonParser()
-        for publicacao_json in publicacoes:
+        for publicacao_json in publicacoes_json:
             publicacao = parser.parse(publicacao_json)
             publicacao.save()
             # TODO importação idempotente
         print('Importação concluída')
+
 
 class PublicaoJsonParser:
 
@@ -44,6 +55,7 @@ class PublicaoJsonParser:
         publicacao.downloads = int(publicacao_json['downloads'])
         publicacao.url = publicacao_json['url']
         return publicacao
+
 
 def main():
     importador = ImportadorTesesUsp()
