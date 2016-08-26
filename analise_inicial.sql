@@ -97,8 +97,178 @@ Brandao, Leonidas de Oliveira|2732
 Ferreira, Joao Eduardo|2665
 Hirata Junior, Roberto|2522
 
+-- os 20 mais da engenharia de computação da Poli
+> select tipo, ano_publicacao, titulo, autor, orientador, downloads from api_publicacao where unidade = 'Poli' and area_conhecimento = 'Engenharia de Computação' order by downloads desc limit 20;
+TESE_DOUTORADO|2013|Planejamento integrado da cadeia de suprimentos da indústria do petróleo baseado em agentes holônicos.|Fernando José de Moura Marcellino|Sichman, Jaime Simão|2905
+DISSERTACAO_MESTRADO|2013|Processo de pré-análise para a modelagem de distribuição de espécies.|Jorge Luiz Diaz Pinaya|Corrêa, Pedro Luiz Pizzigatti|474
+TESE_DOUTORADO|2013|Qualidade da informação: uma abordagem orientada para o contexto.|Osmar Aparecido Machado|Almeida Junior, Jorge Rady de|396
+TESE_DOUTORADO|2013|Método de multiplicação de baixa potência para criptosistema de chave-pública.|João Carlos Néto|Ruggiero, Wilson Vicente|307
+DISSERTACAO_MESTRADO|2013|Aplicação das visões arquiteturais ODP na especificação e execução de processos de negócio.|Diego Mariano de Campos|Risco Becerra, Jorge Luís|300
+DISSERTACAO_MESTRADO|2014|A security framework for mobile health data collection.|Leonardo Horn Iwaya|Carvalho, Tereza Cristina Melo de Brito|284
+TESE_DOUTORADO|2013|Serviço de resolução e descoberta de informações sobre objetos em sistemas baseados em RFID.|Osvaldo Gogliano Sobrinho|Cugnasca, Carlos Eduardo|252
+TESE_DOUTORADO|2013|Um processo de desenvolvimento orientado a objetos com suporte à verificação formal de inconsistências.|Thiago Carvalho de Sousa|Silva, Paulo Sérgio Muniz|225
+TESE_DOUTORADO|2013|Pesquisa de similaridades em imagens mamográficas com base na extração de características.|Jamilson Bispo dos Santos|Almeida Junior, Jorge Rady de|217
+DISSERTACAO_MESTRADO|2013|REASoN - avaliação de confiabilidade e disponibilidade em redes de computadores sustentáveis.|Marcelo Carneiro do Amaral|Carvalho, Tereza Cristina Melo de Brito|200
+TESE_DOUTORADO|2013|Catálogo de modelos de computação para o desenvolvimento de linguagens específicas de modelagem de domínio.|Sergio Martins Fernandes|Melnikoff, Selma Shin Shimizu|195
+TESE_DOUTORADO|2013|Algoritmo distribuído para alocação de múltiplos recursos em ambientes distribuídos.|Francisco Ribacionka|Sato, Liria Matsumoto|190
+TESE_DOUTORADO|2013|Protocolo de roteamento de dados para redes de sensores sem fio com nó coletor móvel para controle da deriva em pulverização agrícola.|Ivairton Monteiro Santos|Cugnasca, Carlos Eduardo|184
+TESE_DOUTORADO|2014|Uma metodologia para caracterização de aplicações e de instâncias de máquinas virtuais no ambiente de computação em nuvem.|Charles Boulhosa Rodamilans|Midorikawa, Edson Toshimi|155
+TESE_DOUTORADO|2014|Redução de gastos com energia elétrica em sistemas de distribuição de água utilizando processos decisórios de Markov.|Paulo Thiago Fracasso|Reali Costa, Anna Helena|149
+TESE_DOUTORADO|2013|Avaliação do uso da rede de telecomunicações aeronáuticas  (ATN) para comunicação digital na operação de veículos aéreos não tripulados (VANT).|Magali Andréia Rossi|Almeida Junior, Jorge Rady de|147
+DISSERTACAO_MESTRADO|2014|Proposta de arquitetura e solução de gerenciamento de credenciais para autenticação e autorização em ambientes de computação em nuvem.|Nelson Mimura Gonzalez|Carvalho, Tereza Cristina Melo de Brito|145
+DISSERTACAO_MESTRADO|2014|Modelo de predição de falhas baseado em processos estocásticos e filtragem Kalman para suporte à manutenção preditiva de sistemas elétricos, eletrônicos e programáveis.|Antonio Vieira da Silva Neto|Cugnasca, Paulo Sergio|135
+TESE_DOUTORADO|2014|Um método para avaliar a aquisição de conhecimento em ambientes virtuais de aprendizagem tridimensionais interativos.|Eunice Pereira dos Santos Nunes|Marques, Fátima de Lourdes dos Santos Nunes|132
+TESE_DOUTORADO|2014|Aceitação de tecnologia por estudantes surdos na perspectiva da educação inclusiva|Soraia Silva Prietch|Filgueiras, Lucia Vilela Leite|124
 
+-- downloads por orientador da engenharia de computação da Poli (os 20 mais)
+> select orientador, sum(downloads) as soma from api_publicacao where unidade = 'Poli' and area_conhecimento = 'Engenharia de Computação' group by orientador order by soma desc limit 20;
+Sichman, Jaime Simão|3013
+Almeida Junior, Jorge Rady de|868
+Carvalho, Tereza Cristina Melo de Brito|799
+Corrêa, Pedro Luiz Pizzigatti|589
+Cugnasca, Carlos Eduardo|539
+Ruggiero, Wilson Vicente|392
+Sato, Liria Matsumoto|389
+Risco Becerra, Jorge Luís|370
+Filgueiras, Lucia Vilela Leite|316
+Tori, Romero|236
+Silva, Paulo Sérgio Muniz|225
+Bressan, Graça|212
+Reali Costa, Anna Helena|209
+Melnikoff, Selma Shin Shimizu|195
+Marques, Fátima de Lourdes dos Santos Nunes|190
+Midorikawa, Edson Toshimi|155
+Saraiva, Antonio Mauro|148
+Cugnasca, Paulo Sergio|135
+Margi, Cíntia Borges|135
+Simplicio Junior, Marcos Antonio|128
 
+-- downloads por orientador da Poli (os 20 mais)
+> select orientador, area_conhecimento, sum(downloads) as soma from api_publicacao where unidade = 'Poli' group by orientador order by soma desc limit 20;
+Botter, Rui Carlos|Engenharia Naval e Oceânica|89605
+Melhado, Silvio Burrattino|Engenharia de Construção Civil e Urbana|88818
+Garcia, Claudio|Engenharia de Sistemas|79691
+Cintra, Jorge Pimentel|Engenharia de Transportes|79543
+Francischini, Paulino Graciano|Engenharia de Produção|72699
+Cardoso, Francisco Ferreira|Inovação na Construção Civil|72489
+Tamada, Kikuo|Engenharia Hidráulica|67752
+Tenório, Jorge Alberto Soares|Engenharia Metalúrgica e de Materiais|64540
+Brunstein, Israel|Engenharia de Produção|63100
+Hespanhol, Ivanildo|Engenharia Hidráulica|61464
+Saidel, Marco Antonio|Sistemas de Potência|58043
+Yoshizaki, Hugo Tsugunobu Yoshida|Engenharia de Produção|55953
+Stipkovic Filho, Marco|Engenharia Mecânica|53602
+Mierzwa, José Carlos|Engenharia Hidráulica|51551
+John, Vanderley Moacyr|Engenharia de Construção Civil e Urbana|51488
+Carvalho, Marly Monteiro de|Engenharia Naval e Oceânica|50247
+Barros, Mercia Maria Semensato Bottura de|Inovação na Construção Civil|49810
+Laurindo, Fernando José Barbin|Engenharia de Produção|48879
+Sanchez, Luis Enrique|Engenharia Mineral|47833
+Chaves, Arthur Pinto|Engenharia Mineral|47564
+
+-- os 20 mais do jornalismo da ECA
+> select tipo, ano_publicacao, titulo, autor, orientador, downloads from api_publicacao where unidade = 'ECA' and area_conhecimento = 'Jornalismo' order by downloads desc limit 20;
+DISSERTACAO_MESTRADO|2006||Regina Maria Azevedo|Nobrega, Maria do Socorro|37529
+DISSERTACAO_MESTRADO|2006||Artur Vasconcellos Araujo|Nobrega, Maria do Socorro|4764
+DISSERTACAO_MESTRADO|2004||Elizabeth da Penha Cardoso|Kucinski, Bernardo|3562
+DISSERTACAO_MESTRADO|2002||Elizabeth de Souza Lorenzotti|Borin, Jair|3348
+DISSERTACAO_MESTRADO|2002|A MTV no Brasil: a padronização da cultura na mídia eletrônica mundial.|Luiza Cristina Lusvarghi|Leal Filho, Laurindo|2381
+TESE_DOUTORADO|2006|Falares: a oralidade como elemento construtor da grande-reportagem|Alex Criado|Lima, Edvaldo Pereira|2030
+DISSERTACAO_MESTRADO|2005|A epifania digital dos chats - escritura e subjetivação cibercultural|Marco Toledo de Assis Bastos|Marcondes Filho, Ciro Juvenal Rodrigues|2003
+TESE_DOUTORADO|2006|Fora da caixa - o processo de decisão sobre o sistema de TV digital no Brasil|Renato Bueno da Cruz|Santoro, Luiz Fernando|1993
+DISSERTACAO_MESTRADO|2006|Discursos e efeitos evanescentes: Uma leitura da imprensa sobre o consumo de substâncias psicoativas na sociedade brasileira|José Ricardo Gallina|Freitas, Jeanne Marie Machado de|1980
+DISSERTACAO_MESTRADO|2005||Marcelo Januario|Vallada, Kardec Pinto|1912
+TESE_DOUTORADO|2005||Ana Maria de Abreu Laurenza|Matos, Heloiza Helena Gomes de|1757
+DISSERTACAO_MESTRADO|2005||Alexandre Barbosa|Ramadan, Nancy Nuyen Ali|1551
+TESE_DOUTORADO|2006|Semiótica minuta - especulações sobre a gramática dos signos e da comunicação a partir da obra de Charles S. Peirce|Anderson Vinícius Romanini|Buitoni, Dulcilia Helena Schroeder|1471
+DISSERTACAO_MESTRADO|2005||Martin Jayo|Melly, Mylene|1292
+TESE_DOUTORADO|2006|A televisão pública num ambiente de competição comercial. Estudo dos modelos brasileiro e português|Liana Vidigal Rocha|Leal Filho, Laurindo|991
+DISSERTACAO_MESTRADO|2006|Viagem ao outro: um estudo sobre o encontro entre jornalistas e fontes|Denise Casatti|Lima, Edvaldo Pereira|784
+DISSERTACAO_MESTRADO|2006||Rodrigo Nathaniel Arco e Flexa|Buitoni, Dulcilia Helena Schroeder|735
+DISSERTACAO_MESTRADO|2005||Ana Paula da Silva|Ceschin, Osvaldo Humberto Leonardi|400
+TESE_DOUTORADO|2006|Jornalismo em rede digital: a construção do conhecimento mobilizada pela notícia|Edson Costa|Lopes, Dirceu Fernandes|365
+-- ops, o parser não pegou vários títulos. 
+-- Gerada issue https://github.com/leonardofl/uspopulares/issues/3
+
+-- downloads por orientador do jornalismo da ECA (os 20 mais)
+> select orientador, sum(downloads) as soma from api_publicacao where unidade = 'ECA' and area_conhecimento = 'Jornalismo' group by orientador order by soma desc limit 20;
+Nobrega, Maria do Socorro|42293
+Kucinski, Bernardo|3562
+Leal Filho, Laurindo|3372
+Borin, Jair|3348
+Lima, Edvaldo Pereira|2814
+Buitoni, Dulcilia Helena Schroeder|2206
+Marcondes Filho, Ciro Juvenal Rodrigues|2003
+Santoro, Luiz Fernando|1993
+Freitas, Jeanne Marie Machado de|1980
+Vallada, Kardec Pinto|1912
+Matos, Heloiza Helena Gomes de|1757
+Ramadan, Nancy Nuyen Ali|1551
+Melly, Mylene|1292
+Ceschin, Osvaldo Humberto Leonardi|400
+Lopes, Dirceu Fernandes|365
+
+-- total de publicações por unidade (os 30 mais)
+> select unidade, count(*) as qtd from api_publicacao group by unidade order by qtd desc limit 30;
+FFLCH|6091
+FM|4878
+ESALQ|3963
+Poli|3867
+EESC|3654
+FMVZ|1846
+FEA|1675
+ECA|1535
+FE|1490
+ICB|1427
+IP|1398
+FD|1373
+EERP|1342
+Instituto de Pesquisas Energéticas e Nucleares|1270
+FOB|1259
+FSP|1259
+FFCLRP|1242
+IF|1240
+ICMC|1227
+FO|1203
+FCF|1190
+IQ|1180
+IGc|1161
+IB|1155
+FAU|1064
+IFSC|1011
+FMRP|967
+EE|913
+IQSC|774
+FCFRP|739
+
+-- ranking de impacto (downloads/publicação) os 20 mais
+> select unidade, sum(downloads) / count(*) as impacto from api_publicacao group by unidade order by impacto desc limit 20;
+FEA|2660
+Enfermagem|2402
+EERP|2064
+FE|1922
+Bioengenharia|1918
+Poli|1838
+FD|1711
+ESALQ|1620
+EEFE|1610
+FAU|1541
+EE|1447
+FFLCH|1415
+EESC|1399
+FSP|1396
+IP|1369
+Ecologia de Agroecossistemas|1343
+ECA|1332
+Nutrição Humana Aplicada|1327
+FOB|1262
+Ciência Ambiental|1208
+
+-- ranking de impacto (downloads/publicação) da computação
+> select area_conhecimento, unidade, sum(downloads) / count(*) as impacto from api_publicacao where area_conhecimento like '%Computação%'  group by unidade order by impacto desc;
+Ciências de Computação e Matemática Computacional|ICMC|619
+Ciência da Computação|IME|487
+Engenharia de Computação|Poli|144
 
 
 
