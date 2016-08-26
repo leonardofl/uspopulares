@@ -1,4 +1,6 @@
 
+-- Resultados calculados com dados obtidos em 19/07/16
+
 > select min(ano_publicacao) from api_publicacao;
 200
 
