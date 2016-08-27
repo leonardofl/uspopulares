@@ -272,5 +272,53 @@ Ciências de Computação e Matemática Computacional|ICMC|619
 Ciência da Computação|IME|487
 Engenharia de Computação|Poli|144
 
+-- os 20 mais da história (econômica e social) da FFLCH
+> select tipo, ano_publicacao, titulo, autor, orientador, downloads from api_publicacao where unidade = 'FFLCH' and area_conhecimento like '%História%' order by downloads desc limit 20;
+DISSERTACAO_MESTRADO|2002|Tipologia documental como parâmetro para gestão de documentos de arquivo: um manual para o município de Campo Belo (MG).|Ana Celia Rodrigues|Bellotto, Heloisa Liberalli|28919
+TESE_DOUTORADO|2006|A conquista e a ocupação da Amazônia brasileira no período colonial: a definição das fronteiras|Tadeu Valdir Freitas de Rezende|Wright, Antonia Fernanda Pacca de Almeida|24443
+DISSERTACAO_MESTRADO|2001|A emigração espanhola e a trajetória do imigrante na cafeicultura paulista: o caso de Villa Novaes, 1880-1930.|Marilia Dalva Klaumann Canovas|Marcilio, Maria Luiza|24233
+TESE_DOUTORADO|2008|A produção teatral paulistana dos anos 1980: rabiscando com faca o chão da história: tempo de contar os prejuízos em percursão de andança|Alexandre Luiz Mate|Aquino, Maria Aparecida de|19737
+DISSERTACAO_MESTRADO|2009|Dona Benta - Comer Bem: uma fonte para a história da alimentação (1940-2003)|Renata da Silva Simoes|Carneiro, Henrique Soares|18023
+DISSERTACAO_MESTRADO|2001||Marcos Alexandre Capellari|Glezer, Raquel|15523
+DISSERTACAO_MESTRADO|2009|A política da escravidão no império do Brasil, 1826-1865|Tâmis Peixoto Parron|Marquese, Rafael de Bivar|13650
+TESE_DOUTORADO|2003|A formação do professor e o ensino de história. Espaços e dimensões de práticas eduacativas (Belo Horizonte, 1980/2003).|Cláudia Regina Fonseca Miguel Sapag Ricci|Silva, Marcos Antonio da|13239
+TESE_DOUTORADO|2012|A África por ela mesma: a perspectiva africana na História Geral da África (UNESCO)|Muryatan Santana Barbosa|Souza, Marina de Mello e|13171
+DISSERTACAO_MESTRADO|2006|História, política e revolução em Eric Hobsbawm e François Furet|Priscila Gomes Correa|Florenzano, Modesto|12112
+TESE_DOUTORADO|2007|Nazismo tropical? O partido Nazista no Brasil|Ana Maria Dietrich|Meihy, Jose Carlos Sebe Bom|11827
+DISSERTACAO_MESTRADO|2000|Padre Vieira: sonhos proféticos, profecias oníricas. O tempo do Quinto Império nos sermões de Xavier Dormindo.|Luis Filipe Silverio Lima|Meihy, Jose Carlos Sebe Bom|11723
+TESE_DOUTORADO|2008|A produção musical evangélica no Brasil|Érica de Campos Visentini da Luz|Camargo, Ana Maria de Almeida|11129
+TESE_DOUTORADO|2002|A semear horizontes: leituras literárias na formação da infância, Argentina e Brasil (1915-1954).|Gabriela Pellegrino Soares|Prado, Maria Ligia Coelho|10812
+TESE_DOUTORADO|2006|O Instituto Cubano del Arte e Industria Cinematográficos (ICAIC) e a política cultural em Cuba (1959-1991)|Mariana Martins Villaça|Capelato, Maria Helena Rolim|10700
+TESE_DOUTORADO|2008|Imigrantes espanhóis em Santos, 1882-1920|Eliane Veiga Porta|Novais, Fernando Antonio|10064
+TESE_DOUTORADO|2000|As esquinas perigosas da História: um estudo sobre a história dos conceitos de época, situação e crise revolucionária no debate marxista.|Valerio Arcary|Iokoi, Zilda Marcia Gricoli|9965
+TESE_DOUTORADO|2002|Nem do morro, nem da cidade: as transformações do samba e a indústria cultural - 1920-1945.|José Adriano Fenerick|Moura, Esmeralda Blanco Bolsonaro de|9939
+TESE_DOUTORADO|2010|A historiografia da música popular no Brasil (1971-1999)|Silvano Fernandes Baia|Eugênio, Marcos Francisco Napolitano de|9844
+TESE_DOUTORADO|2002|Religião e hegemonia aristocrática na Península Ibérica (Séculos IV-VIII).|Mario Jorge da Motta Bastos|Franco Junior, Hilario|9742
+
+-- downloads por orientador da história (socieal e econômica) da FFLCH (os 20 mais)
+> select orientador, sum(downloads) as soma from api_publicacao where unidade = 'FFLCH' and area_conhecimento like '%História%' group by orientador order by soma desc limit 20;
+Silva, Marcos Antonio da|81575
+Meihy, Jose Carlos Sebe Bom|62110
+Glezer, Raquel|56500
+Bellotto, Heloisa Liberalli|55690
+Iokoi, Zilda Marcia Gricoli|52018
+Marcilio, Maria Luiza|50775
+Capelato, Maria Helena Rolim|46716
+Aquino, Maria Aparecida de|45765
+Moura, Esmeralda Blanco Bolsonaro de|41180
+Souza, Marina de Mello e|39806
+Camargo, Ana Maria de Almeida|38762
+Souza, Laura de Mello e|38071
+Carneiro, Henrique Soares|33788
+Ferlini, Vera Lucia Amaral|32480
+Machado, Maria Helena Pereira Toledo|31826
+Wright, Antonia Fernanda Pacca de Almeida|31514
+Barbosa, Wilson do Nascimento|31424
+Hernandez, Leila Maria Gonçalves Leite|31272
+Marquese, Rafael de Bivar|30091
+Guarinello, Norberto Luiz|30005
+
+
+
 
 

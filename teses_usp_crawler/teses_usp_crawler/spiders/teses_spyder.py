@@ -23,7 +23,7 @@ class TesesSpider(scrapy.Spider):
 
     def parse_publicacao(self, response):
         publicacao = items.PublicacaoItem()
-        publicacao['titulo'] = response.xpath('//input[@name=\'evTitulo\']/@value').extract()[0]
+        publicacao['titulo'] = response.xpath('//div[contains(text(), \'Título em\')]/following-sibling::div[1]/text()').extract()[0]
         publicacao['tipo'] = response.xpath('//div[contains(text(), \'Documento\')]/following-sibling::div[1]/a/text()').extract()[0]
         publicacao['autor'] = response.xpath('//div[contains(text(), \'Nome completo\')]/following-sibling::div[1]/text()').extract()[0]
         publicacao['unidade'] = response.xpath('//div[contains(text(), \'Unidade da USP\')]/following-sibling::div[1]/a/text()').extract()[0]
