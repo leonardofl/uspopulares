@@ -5,7 +5,7 @@ from api import models
 
 #TODO usar log em vez de print
 
-JSON_URL = 'https://github.com/leonardofl/uspopulares/blob/master/teses_usp_crawler/teses_usp_crawler/publicacoes.json?raw=true'
+JSON_URL = 'https://www.dropbox.com/s/iiiwtt9tg6avdt9/publicacoes.json?dl=1'
 
 class PublicacoesJsonRetriever:
 
