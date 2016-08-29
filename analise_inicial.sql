@@ -370,6 +370,44 @@ Marquese, Rafael de Bivar|30523
 Guarinello, Norberto Luiz|30382
 
 
+-- os 20 mais da Fono da Med
+> select tipo, ano_publicacao, titulo, autor, orientador, downloads from api_publicacao where unidade = 'FM' and area_conhecimento = 'Comunicação Humana' order by downloads desc limit 20;
+DISSERTACAO_MESTRADO|2010|Protocolo fonoaudiológico de introdução e transição da alimentação por via oral para pacientes com risco para disfagia (PITA)|Aline Rodrigues Padovani|Andrade, Claudia Regina Furquim de|16295
+DISSERTACAO_MESTRADO|2013|Autismo e escola: perspectiva de pais e professores|Ana Gabriela Lopes Pimentel|Fernandes, Fernanda Dreux Miranda|4261
+TESE_DOUTORADO|2008|Estudo das respostas para o potencial evocado auditivo de estado estável em lactentes|Flávia Giuli Santi Martins Ribeiro|Carvallo, Renata Mota Mamede de|3921
+DISSERTACAO_MESTRADO|2010|Aplicabilidade do BEST-2 para avaliação da comunicação de afásicos em ambiente hospitalar|Flavia Helena Alves Garcia Marchi|Mansur, Leticia Lessa|3295
+DISSERTACAO_MESTRADO|2011|Eletrofisiologia da audição em indivíduos com  vestibulopatias periféricas pré e pós reabilitação vestibular|Cristiane da Silva Nunes|Matas, Carla Gentile|3043
+DISSERTACAO_MESTRADO|2008|Avaliação da qualidade de vida em pacientes afásicos com protocolo específico SAQOL-39|Cristiane Ribeiro|Mansur, Leticia Lessa|2957
+DISSERTACAO_MESTRADO|2008|Supressão das emissões otoacústicas evocadas por estímulo "tone burst" em neonatos com risco para perda auditiva|Jordana Costa Soares|Carvallo, Renata Mota Mamede de|2726
+TESE_DOUTORADO|2011|Consciência sintática e coerência central no espectro autístico|Cristina de Andrade Varanda|Fernandes, Fernanda Dreux Miranda|2340
+DISSERTACAO_MESTRADO|2010|Marcação de tempo por surdos sinalizadores|Aline Nascimento Crato|Carnio, Maria Silvia|2159
+DISSERTACAO_MESTRADO|2010|Qualidade de vida da criança surda  de 7 a 11 anos: o papel do aparelho de amplificação sonora individual|Luciana Regina de Lima Carvalho|Lichtig, Ida|2115
+DISSERTACAO_MESTRADO|2012|Disfagia orofaríngea em pacientes submetidos à intubação orotraqueal prolongada em UTIs|Gisele Chagas de Medeiros|Andrade, Claudia Regina Furquim de|2077
+TESE_DOUTORADO|2009|Estudo dos potenciais evocados auditivos de longa  latência em crianças com transtorno fonológico pré e pós terapia fonoaudiológica|Renata Aparecida Leite|Matas, Carla Gentile|2063
+DISSERTACAO_MESTRADO|2009|Fonoaudiologia nos distúrbios do espectro autístico: uma experiência de oficina de formação de terapeutas|Kenya Ayo-kianga da Silva Faustino|Fernandes, Fernanda Dreux Miranda|2040
+TESE_DOUTORADO|2007|Avaliação das habilidades comunicativas de crianças surdas: a influência do uso da língua de sinais e do português pelo examinador bilingüe|Felipe Venâncio Barbosa|Lichtig, Ida|2027
+DISSERTACAO_MESTRADO|2008|Compreensão de sentenças nos indivíduos com doença de Parkinson|Daniela Cunha Agonilha|Mansur, Leticia Lessa|1750
+TESE_DOUTORADO|2011|Processamento de sinais acústicos de diferentes complexidades em crianças com alteração de percepção da audição ou da linguagem|Caroline Nunes Rocha Muniz|Schochat, Eliane|1749
+DISSERTACAO_MESTRADO|2009|Avaliação audiológica, eletroacústica e eletrofisiológica da audição em adultos com HIV/AIDS|Kleber Ramos de Juan|Matas, Carla Gentile|1664
+TESE_DOUTORADO|2007|Supressão das emissões otoacústicas e sensibilização do reflexo acústico no distúrbio de processamento auditivo|Fernanda Acaui Ribeiro Burguetti|Carvallo, Renata Mota Mamede de|1589
+DISSERTACAO_MESTRADO|2008|Protocolo de cooperação fonoaudiológica para nasofibrolaringoscopia funcional de pacientes com imobilidade de prega vogal pós-tireoidectomia (PNF)|Priscila Esteves Ciocchi|Andrade, Claudia Regina Furquim de|1571
+TESE_DOUTORADO|2007|Tempo de processamento para a leitura de palavras e para a nomeação de figuras em crianças leitoras e não leitoras|Luciene Stivanin|Scheuer, Claudia Ines|1540
 
+-- downloads por orientador da Fono da Med 
+> select orientador, sum(downloads) as soma from api_publicacao where unidade = 'FM' and area_conhecimento = 'Comunicação Humana' group by orientador order by soma desc limit 20;
+Andrade, Claudia Regina Furquim de|29209
+Fernandes, Fernanda Dreux Miranda|18570
+Carvallo, Renata Mota Mamede de|16200
+Matas, Carla Gentile|13484
+Mansur, Leticia Lessa|12864
+Schochat, Eliane|11776
+Lichtig, Ida|6091
+Limongi, Suelly Cecilia Olivan|5894
+Lopes, Debora Maria Befi|4783
+Scheuer, Claudia Ines|2792
+Carnio, Maria Silvia|2720
+Wertzner, Haydée Fiszbein|2533
+Samelli, Alessandra Giannella|853
+Sassi, Fernanda Chiarion|319
 
 
